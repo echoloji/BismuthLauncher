@@ -76,7 +76,7 @@ private val controlTabs = listOf(
     //手势控制设置
     IconTab(R.drawable.ic_touch_app_filled),
     //陀螺仪设置
-    IconTab(R.drawable.ic_mobile_rotate)
+    IconTab(R.drawable.ic_mobile_rotate_filled)
 )
 
 @Composable
