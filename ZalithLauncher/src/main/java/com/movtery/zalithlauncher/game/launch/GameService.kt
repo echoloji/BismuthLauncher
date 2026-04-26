@@ -26,11 +26,10 @@ import android.os.Build
 import android.os.IBinder
 import androidx.core.app.NotificationCompat
 import com.movtery.zalithlauncher.R
+import com.movtery.zalithlauncher.notification.NOTIFICATION_ID_GAME_SERVICE
 import com.movtery.zalithlauncher.notification.NotificationChannelData
 
 class GameService : Service() {
-    private val notificationId: Int = 1002
-
     override fun onBind(intent: Intent?): IBinder? = null
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
@@ -45,12 +44,12 @@ class GameService : Service() {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
             startForeground(
-                notificationId,
+                NOTIFICATION_ID_GAME_SERVICE,
                 notification,
                 ServiceInfo.FOREGROUND_SERVICE_TYPE_DATA_SYNC
             )
         } else {
-            startForeground(notificationId, notification)
+            startForeground(NOTIFICATION_ID_GAME_SERVICE, notification)
         }
 
         return START_NOT_STICKY

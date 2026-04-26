@@ -18,6 +18,8 @@
 
 package com.movtery.zalithlauncher.terracotta;
 
+import static com.movtery.zalithlauncher.notification._NotificationIDKt.NOTIFICATION_ID_VPN_REQUEST_CODE;
+
 import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -53,8 +55,6 @@ public class TerracottaVPNService extends VpnService {
 
     private static final String EXTRA_FROM_DELETE    = "from_delete";
     public static final String EXTRA_STATE_TEXT      = "terracotta_state_text";
-
-    public static final int VPN_REQUEST_CODE         = 1000;
 
     private NotificationManager notificationManager;
     private int currentStateStringRes = -1;
@@ -185,7 +185,7 @@ public class TerracottaVPNService extends VpnService {
                 .putExtra(EXTRA_STATE_TEXT, currentStateStringRes);
         PendingIntent deletePendingIntent = PendingIntent.getService(
                 this,
-                VPN_REQUEST_CODE,
+                NOTIFICATION_ID_VPN_REQUEST_CODE,
                 deleteIntent,
                 PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE
         );
