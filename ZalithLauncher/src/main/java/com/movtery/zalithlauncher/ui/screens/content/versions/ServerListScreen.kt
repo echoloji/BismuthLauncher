@@ -1137,11 +1137,7 @@ private fun ServerEditDialog(
 ) {
     //默认的服务器名称，不填时使用它
     val defaultName = stringResource(R.string.servers_list_add_server_default_name)
-    var name by remember {
-        mutableStateOf(
-            name?.takeIf { it.isNotEmptyOrBlank() } ?: defaultName
-        )
-    }
+    var name by remember { mutableStateOf(name?.takeIf { it.isNotEmpty() } ?: defaultName) }
     var ip by remember { mutableStateOf(address) }
 
     //仅检查服务器地址栏是否为空
@@ -1236,8 +1232,7 @@ private fun ServerEditDialog(
                             modifier = Modifier.weight(1f),
                             onClick = {
                                 if (!isIpEmpty) {
-                                    val name0 = if (name.isEmptyOrBlank()) defaultName
-                                    else name
+                                    val name0 = name.ifEmpty { defaultName }
 
                                     onApply(name0, ip)
                                     onDismissRequest()
