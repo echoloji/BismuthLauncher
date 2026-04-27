@@ -267,7 +267,8 @@ class ScreenshotsManageViewModel @Inject constructor(
         file: File
     ) {
         val fileName = file.name
-        val relativePath = Environment.DIRECTORY_PICTURES + "/" + InfoDistributor.LAUNCHER_IDENTIFIER + "/"
+        val relativePath =
+            Environment.DIRECTORY_PICTURES + "/" + InfoDistributor.LAUNCHER_IDENTIFIER + "/"
 
         //如果是已存在的文件，则Uri不为null
         val existingUri = queryExistingUri(resolver, fileName, relativePath)
@@ -327,7 +328,8 @@ class ScreenshotsManageViewModel @Inject constructor(
         relativePath: String
     ): Uri? {
         val projection = arrayOf(MediaStore.Images.Media._ID)
-        val selection = "${MediaStore.Images.Media.DISPLAY_NAME} = ? AND ${MediaStore.Images.Media.RELATIVE_PATH} = ?"
+        val selection =
+            "${MediaStore.Images.Media.DISPLAY_NAME} = ? AND ${MediaStore.Images.Media.RELATIVE_PATH} = ?"
         val selectionArgs = arrayOf(fileName, relativePath)
 
         resolver.query(
@@ -654,10 +656,16 @@ private fun ScreenshotHeader(
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         IconButton(onClick = onDeleteAll) {
-                            Icon(painterResource(R.drawable.ic_delete_outlined), contentDescription = null)
+                            Icon(
+                                painterResource(R.drawable.ic_delete_outlined),
+                                contentDescription = null
+                            )
                         }
                         IconButton(onClick = onSelectAll) {
-                            Icon(painterResource(R.drawable.ic_select_all), contentDescription = null)
+                            Icon(
+                                painterResource(R.drawable.ic_select_all),
+                                contentDescription = null
+                            )
                         }
                         IconButton(onClick = { if (isFilesSelected) onClearFilesSelected() }) {
                             Icon(painterResource(R.drawable.ic_deselect), contentDescription = null)
