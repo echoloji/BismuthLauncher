@@ -82,6 +82,7 @@ import com.movtery.zalithlauncher.game.multirt.RuntimesManager
 import com.movtery.zalithlauncher.game.version.installed.Version
 import com.movtery.zalithlauncher.path.PathManager
 import com.movtery.zalithlauncher.setting.AllSettings
+import com.movtery.zalithlauncher.terracotta.TerracottaVPNService
 import com.movtery.zalithlauncher.ui.base.BaseAppCompatActivity
 import com.movtery.zalithlauncher.ui.base.applyFullscreen
 import com.movtery.zalithlauncher.ui.components.rememberBoxSize
@@ -347,7 +348,7 @@ class VMActivity : BaseAppCompatActivity(), SurfaceTextureListener, SurfaceHolde
             eventViewModel = eventViewModel,
             gamepadViewModel = gamepadViewModel,
             exitListener = { exitCode: Int, isSignal: Boolean ->
-                stopService(Intent(this, GameService::class.java))
+                stopAllService()
                 if (exitCode != 0) {
                     showExitMessage(this, exitCode, isSignal)
                 } else {
@@ -539,9 +540,19 @@ class VMActivity : BaseAppCompatActivity(), SurfaceTextureListener, SurfaceHolde
     }
 
     override fun onDestroy() {
-        stopService(Intent(this, GameService::class.java))
+        stopAllService()
         withHandler { onDestroy() }
         super.onDestroy()
+    }
+
+    private fun stopAllService() {
+        stopService(Intent(this, GameService::class.java))
+        if (TerracottaVPNService.isRunning()) {
+            val vpnIntent = Intent(this, TerracottaVPNService::class.java).apply {
+                action = TerracottaVPNService.ACTION_STOP
+            }
+            startForegroundService(vpnIntent)
+        }
     }
 
     @SuppressLint("RestrictedApi")
