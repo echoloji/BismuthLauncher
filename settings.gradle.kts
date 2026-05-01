@@ -24,8 +24,8 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "ZalithLauncher"
-include(":BismuthLauncher")
+rootProject.name = "BismuthLauncher"
+include(":ZalithLauncher")
 include(":LWJGL")
 include(":LayerController")
 include(":ColorPicker")
