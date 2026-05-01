@@ -17,6 +17,10 @@ on:
       CURSEFORGE_API_KEY:
         required: false
 
+# Node.js 24 uyarısını susturmak ve yeni sürüme geçmek için eklenen kısım
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   build:
     if: github.event_name != 'pull_request'
