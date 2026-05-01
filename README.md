@@ -1,8 +1,8 @@
 # Zalith Launcher 2 — Unlocked Edition
 
 <p align="center">
-  <img src="https://img.shields.io/github/v/release/echoloji/ZalithLauncher2?style=for-the-badge&color=7C4DFF&logo=github" alt="Release">
-  <img src="https://img.shields.io/github/downloads/echoloji/ZalithLauncher2/total?style=for-the-badge&color=B388FF&logo=github" alt="Downloads">
+  <img src="https://img.shields.io/github/v/release/echoloji/ZalithLauncher2-Offline?style=for-the-badge&color=7C4DFF&logo=github" alt="Release">
+  <img src="https://img.shields.io/github/downloads/echoloji/ZalithLauncher2-Offline/total?style=for-the-badge&color=B388FF&logo=github" alt="Downloads">
 </p>
 
 ---
