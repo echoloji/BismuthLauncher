@@ -1,4 +1,4 @@
-# Zalith Launcher 2 — Unlocked Edition
+# BismuthLauncher
 
 <p align="center">
   <img src="https://img.shields.io/github/v/release/echoloji/ZalithLauncher2-Offline?style=for-the-badge&color=7C4DFF&logo=github" alt="Release">
